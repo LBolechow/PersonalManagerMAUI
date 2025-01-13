@@ -1,0 +1,39 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PersonalManager.Views.AddNotePage"
+             Title="Notatki">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Dodaj notatkę" IconImageSource="add.png" Clicked="OnAddNoteClicked"/>
+    </ContentPage.ToolbarItems>
+
+    <VerticalStackLayout Padding="20">
+        <CollectionView x:Name="NotesCollectionView" ItemsSource="{Binding Notes}" Margin="0,0,0,20">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="5" Padding="10" BackgroundColor="#483D8B" BorderColor="Gray" CornerRadius="5">
+                        <StackLayout>
+                            <Label Text="{Binding Content}" FontSize="Medium" />
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="End" Spacing="10">
+                                <Button ImageSource="edit.png" 
+                                        Clicked="OnEditNoteClicked" 
+                                        CommandParameter="{Binding Id}" 
+                                        WidthRequest="60" HeightRequest="60" 
+                                        BackgroundColor="Transparent" 
+                                        BorderColor="Transparent" />
+                                <Button ImageSource="delete.png" 
+                                        Clicked="OnDeleteNoteClicked" 
+                                        CommandParameter="{Binding Id}" 
+                                        WidthRequest="60" HeightRequest="60" 
+                                        BackgroundColor="Transparent" 
+                                        BorderColor="Transparent" />
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

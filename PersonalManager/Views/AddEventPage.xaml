@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PersonalManager.Views.AddEventPage"
+             Title="Dodaj wydarzenie">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+            <Entry x:Name="TitleEntry" Placeholder="Tytuł wydarzenia" />
+            <Editor x:Name="DescriptionEditor" Placeholder="Opis wydarzenia" />
+            <DatePicker x:Name="StartDatePicker" />
+            <TimePicker x:Name="StartTimePicker" Format="HH:mm" />
+            <DatePicker x:Name="EndDatePicker" />
+            <TimePicker x:Name="EndTimePicker" Format="HH:mm" />
+            <Label Text="Wybierz kategorię:" />
+            <Picker x:Name="CategoryPicker" ItemsSource="{Binding Categories}" />
+            <Label Text="Wybierz kolor:" />
+            <CollectionView x:Name="ColorCollection" SelectionMode="Single" ItemsSource="{Binding Colors}"  SelectionChanged="OnColorSelected">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Horizontal" Span="1" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="10" HeightRequest="50" WidthRequest="50" BackgroundColor="{Binding}" Margin="5" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Label x:Name="SelectedColorLabel" Text="Nie wybrano koloru" FontAttributes="Bold" TextColor="White" HorizontalOptions="Start" />
+            <Button Text="Zapisz" Clicked="OnSaveClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

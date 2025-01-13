@@ -1,0 +1,62 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PersonalManager.Views.EventDetailsPage"
+             Title="Szczegóły wydarzenia">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Wyświetl notatki" IconImageSource="notebook.png" Clicked="OnAddNoteClicked" />
+        <ToolbarItem Text="Wyświetl checklisty" IconImageSource="check.png" Clicked="OnAddChecklistClicked" />
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+            <!-- Etykiety z danymi - Znikają po kliknięciu aktualizacji -->
+            <Label x:Name="TytulLabel" Text="Tytuł:" FontAttributes="Bold" />
+            <Label x:Name="TitleLabel" />
+
+            <Label x:Name="OpisLabel" Text="Opis:" FontAttributes="Bold" />
+            <Label x:Name="DescriptionLabel" />
+
+            <Label x:Name="KategoriaLabel" Text="Kategoria:" FontAttributes="Bold" />
+            <Label x:Name="CategoryLabel" />
+
+            <Label x:Name="DataRozpoczeciaLabel" Text="Data rozpoczęcia:" FontAttributes="Bold" />
+            <Label x:Name="StartDateLabel" />
+
+            <Label x:Name="DataZakonczeniaLabel" Text="Data zakończenia:" FontAttributes="Bold" />
+            <Label x:Name="EndDateLabel" />
+
+            <Label x:Name="KolorLabel" Text="Kolor:" FontAttributes="Bold" />
+            <Frame x:Name="ColorFrame" HeightRequest="50" WidthRequest="50" CornerRadius="10" HorizontalOptions="Start"/>
+
+
+            <!-- Ukryte początkowo pola edycyjne -->
+            <Entry x:Name="TitleEntry" IsVisible="False" />
+            <Editor x:Name="DescriptionEditor" IsVisible="False" />
+            <Picker x:Name="CategoryPicker" IsVisible="False" />
+            <DatePicker x:Name="StartDatePicker" IsVisible="False" />
+            <TimePicker x:Name="StartTimePicker" Format="HH:mm" IsVisible="False" />
+            <DatePicker x:Name="EndDatePicker" IsVisible="False" />
+            <TimePicker x:Name="EndTimePicker" Format="HH:mm" IsVisible="False" />
+            <CollectionView x:Name="ColorCollection" SelectionMode="Single" ItemsSource="{Binding Colors}" SelectionChanged="OnColorSelected" IsVisible="False">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Horizontal" Span="1" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="10" HeightRequest="50" WidthRequest="50" BackgroundColor="{Binding}" Margin="5" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label x:Name="SelectedColorLabel" Text="Nie wybrano koloru" FontAttributes="Bold" TextColor="White" HorizontalOptions="Start" IsVisible="False" />
+
+            <!-- Przycisk Zaktualizuj, zmieniający się na "Zapisz" -->
+            <Button x:Name="UpdateButton" Text="Zaktualizuj" Clicked="OnUpdateClicked" BackgroundColor="#00CED1" FontSize="21" />
+            <Button x:Name="SaveButton" Text="Zapisz" Clicked="OnSaveClicked" BackgroundColor="#FF8C00" IsVisible="False" FontSize="21"/>
+            <Button x:Name="CancelButton" Text="Anuluj" Clicked="OnCancelClicked" BackgroundColor="#F8F8FF" IsVisible="False" FontSize="21"/>
+
+
+            <!-- Przycisk Usuń -->
+            <Button Text="Usuń" Clicked="OnDeleteClicked" BackgroundColor="#B22222" FontSize="21"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

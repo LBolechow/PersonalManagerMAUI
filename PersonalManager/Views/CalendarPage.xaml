@@ -1,0 +1,28 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
+             x:Class="PersonalManager.Views.CalendarPage"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             Title="Kalendarz">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Dodaj wydarzenie" IconImageSource="add.png" Clicked="OnAddEventClicked"/>
+    </ContentPage.ToolbarItems>
+
+    <scheduler:SfScheduler View="Month"
+                           AllowedViews="Day,Week,Month"
+                           TodayHighlightBrush="#483D8B"
+                           x:Name="EventScheduler"
+                           DisplayDate="{x:Static sys:DateTime.Now}"
+                           BackgroundColor="White"
+                           Tapped="OnSchedulerTapped"
+                           >
+        <scheduler:SfScheduler.DaysView>
+            <scheduler:SchedulerDaysView TimeFormat="HH:mm" />
+        </scheduler:SfScheduler.DaysView>
+
+        <scheduler:SfScheduler.TimelineView>
+            <scheduler:SchedulerTimelineView TimeFormat="HH:mm" />
+        </scheduler:SfScheduler.TimelineView>
+    </scheduler:SfScheduler>
+
+</ContentPage>

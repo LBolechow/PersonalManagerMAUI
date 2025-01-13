@@ -1,0 +1,62 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PersonalManager.MainPage"
+             BackgroundColor="#87CEFA"
+             Title="PersonalManager">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Nagłówek -->
+            <Label Text="Personal Manager"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#343a40"/>
+
+            <!-- Kalendarz -->
+            <Frame x:Name="CalendarTapped"
+                   BackgroundColor="#007bff"
+                   CornerRadius="20"
+                   HasShadow="True">
+                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Image Source="calendar.png" HeightRequest="60" WidthRequest="60"/>
+                    <Label Text="Kalendarz wydarzeń" TextColor="White" FontSize="22" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </Frame>
+
+            <!-- Lista zadań -->
+            <Frame x:Name="ToDoTapped"
+                   BackgroundColor="#28a745"
+                   CornerRadius="20"
+                   HasShadow="True">
+                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Image Source="todo.png" HeightRequest="60" WidthRequest="60"/>
+                    <Label Text="Lista zadań" TextColor="White" FontSize="22" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </Frame>
+
+            <!-- Przypomnienia -->
+            <Frame x:Name="RemindersTapped"
+                   BackgroundColor="#20B2AA"
+                   CornerRadius="20"
+                   HasShadow="True">
+                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Image Source="notification.png" HeightRequest="60" WidthRequest="60"/>
+                    <Label Text="Przypomnienia" TextColor="White" FontSize="22" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </Frame>
+
+            <!-- Dokumenty -->
+            <Frame x:Name="DocumentsTapped"
+                   BackgroundColor="#7B68EE"
+                   CornerRadius="20"
+                   HasShadow="True">
+                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Image Source="folders.png" HeightRequest="60" WidthRequest="60"/>
+                    <Label Text="Synchronizacja" TextColor="White" FontSize="22" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

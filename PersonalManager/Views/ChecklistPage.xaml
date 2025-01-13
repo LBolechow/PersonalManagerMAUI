@@ -1,0 +1,44 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PersonalManager.Views.ChecklistPage"
+             xmlns:local="clr-namespace:PersonalManager.Views"
+             Title="Checklista">
+    <StackLayout Padding="10">
+        <Entry Placeholder="Wpisz tytuł checklisty" 
+               Text="{Binding Checklist.Title}" 
+               Margin="0, 10" />
+        <!-- Dodajemy margines do tytułu -->
+
+        <!-- Kolekcja elementów checklisty -->
+        <CollectionView ItemsSource="{Binding CheckItems}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal" Spacing="10" Margin="0, 5">
+                        <!-- Dodajemy margines do każdego elementu checklisty -->
+                        <CheckBox IsChecked="{Binding IsCompleted}" />
+                        <Entry Text="{Binding Content}" HorizontalOptions="FillAndExpand" />
+                        <Button BackgroundColor="Transparent" Command="{Binding Source={RelativeSource AncestorType={x:Type local:ChecklistPage}}, Path=DeleteCheckItemCommand}" 
+                                CommandParameter="{Binding Id}">
+                            <Button.ImageSource>
+                                <FileImageSource File="delete.png" />
+                            </Button.ImageSource>
+                            <Button.WidthRequest>65</Button.WidthRequest>
+                            <Button.HeightRequest>65</Button.HeightRequest>
+                        </Button>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Dodawanie nowego elementu -->
+        <StackLayout Orientation="Horizontal" Spacing="10" Padding="10" Margin="0, 10">
+            <!-- Dodajemy margines między elementami -->
+            <Entry Placeholder="Nowy element" Text="{Binding NewItemContent}" HorizontalOptions="FillAndExpand" />
+            <Button Text="Dodaj" Command="{Binding AddCheckItemCommand}" />
+        </StackLayout>
+
+        <!-- Zapisanie checklisty -->
+        <Button Text="Zapisz checklistę" Command="{Binding SaveChecklistCommand}" Margin="0, 10"/>
+        <!-- Dodajemy margines na dole -->
+    </StackLayout>
+</ContentPage>

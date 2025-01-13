@@ -1,0 +1,18 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="PersonalManager.Views.ToDoPage">
+    <StackLayout>
+        <Label Text="Tables in Database"
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="StartAndExpand" />
+        <ListView x:Name="TableNamesListView"
+                  ItemSelected="OnTableSelected">
+            <!-- Wyświetlanie nazw tabel -->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding .}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
