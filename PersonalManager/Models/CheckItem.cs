@@ -9,11 +9,11 @@ namespace PersonalManager.Models
 {
     public class CheckItem
     {
-        public int Id { get; set; } // Unikalny identyfikator elementu
-        public string Content { get; set; } // Treść elementu
-        public bool IsCompleted { get; set; } // Status ukończenia
+        public int Id { get; set; } 
+        public string Content { get; set; } 
+        public bool IsCompleted { get; set; } 
 
-        public int ChecklistId { get; set; } // Klucz obcy do checklisty
-        public Checklist Checklist { get; set; } // Powiązana checklista
+        public int ChecklistId { get; set; }
+        public Checklist Checklist { get; set; }
     }
 }
