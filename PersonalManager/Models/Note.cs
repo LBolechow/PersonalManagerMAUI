@@ -10,13 +10,13 @@ namespace PersonalManager.Models
 {
     public class Note
     {
-        public int Id { get; set; } // Unikalny identyfikator notatki
-        public string Content { get; set; } // Zawartość notatki
+        public int Id { get; set; } 
+        public string Content { get; set; }
 
-        public int? EventId { get; set; } // Klucz obcy wskazujący na wydarzenie
-        public Event Event { get; set; } // Obiekt wydarzenia (jeśli jest powiązane)
+        public int? EventId { get; set; } 
+        public Event Event { get; set; } 
 
-        public int? MyTaskId { get; set; } // Klucz obcy wskazujący na zadanie
-        public MyTask MyTask { get; set; } // Obiekt zadania (jeśli jest powiązane)
+        public int? MyTaskId { get; set; } 
+        public MyTask MyTask { get; set; } 
     }
 }
