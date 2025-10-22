@@ -9,13 +9,13 @@ namespace PersonalManager.Models
 {
     public class Event
     {
-        public int Id { get; set; } // Unikalny identyfikator wydarzenia
+        public int Id { get; set; } 
 
-        public string Title { get; set; } // Tytuł wydarzenia
-        public string Description { get; set; } // Opis wydarzenia
-        public DateTime StartDate { get; set; } // Data i godzina rozpoczęcia
-        public DateTime EndDate { get; set; } // Data i godzina zakończenia
-        public string Category { get; set; } // Kategoria wydarzenia (np. praca, hobby)
-        public string Color { get; set; } // Kolor dla wydarzenia, np. z kodem hex
+        public string Title { get; set; }
+        public string Description { get; set; } 
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; } 
+        public string Category { get; set; }
+        public string Color { get; set; } 
     }
 }
